@@ -41,10 +41,12 @@ Need to add code for ssl/tls and for running server with multiple threads.
   the font size is largest for the words used most frequently, and gets progressively smaller for
   words used less often. Words with same frequency have same size.
   (using app/templates/template200.html)
+  
   D. POST Handler updates MySQL DB words_t table with the following columns : 
    1) The primary key for the word is a salted hash of the word.
    2) The word itself is saved in a column that has asymmetrical encryption, and you are saving the encrypted version of the word.
    3) The total frequency count of the word.
+ 
   E. POST handler in case something is wrong i.e. url submitted sends an error back to the browser using template500.html
 
 ### GET "http://127.0.0.1:8888/admin"
