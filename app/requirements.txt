@@ -1,0 +1,8 @@
+tornado
+mysql-connector
+patch
+nose
+mock
+beautifulsoup4
+requests
+simplejson
