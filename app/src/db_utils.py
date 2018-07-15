@@ -8,7 +8,7 @@ class DB:
     def close(self):
         raise NotImplementedError
 
-class WordDB:
+class WordDB(DB):
   def __init__(self):
       self.table_exists = False
   def connect(self):
