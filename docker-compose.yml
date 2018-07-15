@@ -1,6 +1,6 @@
 version: "2"
 services:
-  app:
+   app:
     build: ./app
     links:
       - db
