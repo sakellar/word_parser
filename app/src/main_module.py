@@ -4,7 +4,6 @@ import mysql.connector
 from control_tools import WordController
 
 
-
 class FormHandler(tornado.web.RequestHandler):
     pass
 
@@ -16,20 +15,6 @@ class MainHandler(tornado.web.RequestHandler):
         self.render("../templates/templateForm.html")
 
     def post(self):
-        url = self.get_body_argument("message")
-        print url
-        config = {
-        'user': 'root',
-        'password': 'root',
-        'host': '0.0.0.0',#db
-        'port': '3306',
-        'database': 'knights'
-        }
-        connection = mysql.connector.connect(**config)
-        connection.close()
-
-    """
-    def post(self):
         try:
             url = self.get_body_argument("message")
             wctrl = WordController()
@@ -40,7 +25,7 @@ class MainHandler(tornado.web.RequestHandler):
             self.clear()
             self.set_status(500)
             self.render("../templates/template500.html", error=str(e))
-    """
+
 application = tornado.web.Application([
    (r"/", MainHandler),
    (r"/myform", FormHandler),
