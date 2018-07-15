@@ -1,6 +1,5 @@
 import tornado.ioloop
 import tornado.web
-import mysql.connector
 from control_tools import WordController
 
 
