@@ -2,19 +2,22 @@
 
 RESTful micro-services application for word counter for url using tornado web server and mysql database
 
-## Uses docker-compose for the different parts of the application
+## docker-compose
+Uses docker-compose for the different parts of the application application (app) and database (db)
+To run the orchestrated application execute the following command from the terminal:
+```
+docker-compose up
+```
 
 ### app
-   Uses a Dockerfile to build docker image with python 2.7 and its requirements.txt file.
-   Copies src/ code and templates/ to docker application container
-   Runs tornado http server
-   build: app/ specifies the directory which contains the Dockerfile containing the instructions for building this service
-   ports: 8888
+   What this does is simply as described in the file — base the image on a Python 2.7 image, exposes port 8888 (for tornado), create a working directory to which requirements.txt src/ , templates/ will be copied, installs the needed packages and runs the app.
    
 ### db
-   Creates a db words_t for creating words_t table.
-   build: specifies the directory which contains the Dockerfile containing the instructions for building this service
-   ports: 3600
+   Creates a database words_t for creating words_t table. Exposes port 3306 for the database
+   You can access the database directly using the mysql client and following command:
+```
+mysql --host=127.0.0.1 --port=3306 -u root -p
+```
 
 ## REST API
 I created a RESTful python web application using Tornado web server.
@@ -22,8 +25,11 @@ Need to add code for ssl/tls and for running server with multiple threads.
 
 ### GET "http://127.0.0.1:8888/"
   I created a python web application using Tornado web server.
+
   A. The project has a single page with a form (app/templates/templateForm.html).
+  
   B. Form receives a url in string format.
+  
   C. Once the url is submitted, redirects to POST handler for "http://127.0.0.1:8888/".
 
 ### POST "http://127.0.0.1:8888/"
