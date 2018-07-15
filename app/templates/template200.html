@@ -1,0 +1,14 @@
+<html>
+   <head>
+      <title>{{ title }}</title>
+   </head>
+   <body>
+     <ul>
+	<div id="statistics-table">
+		     {% for item in items %}
+		     <li><font size={{item['font']}}>  {{item['word']}} : {{item['frequency']}}</font></li>
+		     {% end %}
+	</div>
+    </ul>
+   </body>
+ </html>
